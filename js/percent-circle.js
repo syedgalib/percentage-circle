@@ -6,9 +6,10 @@ function percent_circle(circle_id, prop=null) {
   var caption_value = circle.attr('data-caption');
   var deg           = (360 * percent_value) / 100;
 
-  circle.html('<div class="circle-wrap"><span>0%</span><div class="percent-slice"><div class="percent-fill"></div><div class="percent-bar"></div></div></div><div class="percent-caption"></div>');
+  circle.html('<div class="circle-wrap"><span>0%</span><div class="percent-slice"><div class="percent-fill"></div><div class="percent-bar"></div></div></div>');
 
-  var caption       = $(circle_id + ' .percent-caption');
+  if (caption_value) { circle.append('<div class="percent-caption"></div>'); }
+  var caption = $(circle_id + ' .percent-caption');
 
   $(circle_wrap + ' span').html(percent_value +'%');
   caption.html(caption_value);
